@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D9y-WF-uOm">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Weather Info View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="WeatherInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="WeatherInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Please Enter City Name for weather information" translatesAutoresizingMaskIntoConstraints="NO" id="lbd-u5-u1w">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dJ8-yd-cwH"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dJ8-yd-cwH"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="dJ8-yd-cwH"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="gJB-Je-VoS"/>
+                                </connections>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your City Weather Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pn2-mh-Vjq">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="0.56000000000000005" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LXi-Yp-Q0x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LXi-Yp-Q0x"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="LXi-Yp-Q0x"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WNm-cG-tln">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="660" id="f3W-Lp-f1d"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="f3W-Lp-f1d"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="f3W-Lp-f1d"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="tIQ-Ay-pNs"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="eea-Vu-yBC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="WNm-cG-tln" secondAttribute="bottom" id="4Nq-gi-vqY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WNm-cG-tln" secondAttribute="trailing" constant="-16" id="EDe-DH-US0"/>
+                            <constraint firstItem="lbd-u5-u1w" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="FKq-Mf-F94"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pn2-mh-Vjq" secondAttribute="trailing" constant="-16" id="IRJ-tR-MfF"/>
+                            <constraint firstItem="Pn2-mh-Vjq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="N8A-HK-sBi"/>
+                            <constraint firstItem="WNm-cG-tln" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="dpY-Iq-7XF"/>
+                            <constraint firstItem="WNm-cG-tln" firstAttribute="top" secondItem="Pn2-mh-Vjq" secondAttribute="bottom" constant="2" id="e74-hw-f6c"/>
+                            <constraint firstItem="lbd-u5-u1w" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="euQ-Q3-SRU"/>
+                            <constraint firstItem="Pn2-mh-Vjq" firstAttribute="top" secondItem="lbd-u5-u1w" secondAttribute="bottom" id="uCP-gL-RMO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lbd-u5-u1w" secondAttribute="trailing" constant="-16" id="vyb-0p-rOM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="lbd-u5-u1w"/>
+                                <exclude reference="Pn2-mh-Vjq"/>
+                                <exclude reference="WNm-cG-tln"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4Nq-gi-vqY"/>
+                                <exclude reference="IRJ-tR-MfF"/>
+                                <exclude reference="N8A-HK-sBi"/>
+                                <exclude reference="uCP-gL-RMO"/>
+                                <exclude reference="FKq-Mf-F94"/>
+                                <exclude reference="euQ-Q3-SRU"/>
+                                <exclude reference="vyb-0p-rOM"/>
+                                <exclude reference="EDe-DH-US0"/>
+                                <exclude reference="dpY-Iq-7XF"/>
+                                <exclude reference="e74-hw-f6c"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="lbd-u5-u1w"/>
+                                <include reference="Pn2-mh-Vjq"/>
+                                <include reference="WNm-cG-tln"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="4Nq-gi-vqY"/>
+                                <include reference="IRJ-tR-MfF"/>
+                                <include reference="N8A-HK-sBi"/>
+                                <include reference="uCP-gL-RMO"/>
+                                <include reference="FKq-Mf-F94"/>
+                                <include reference="euQ-Q3-SRU"/>
+                                <include reference="vyb-0p-rOM"/>
+                                <include reference="EDe-DH-US0"/>
+                                <include reference="dpY-Iq-7XF"/>
+                                <include reference="e74-hw-f6c"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="CAx-ma-0h9"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="cityLabel" destination="Pn2-mh-Vjq" id="T1e-2k-2b8"/>
+                        <outlet property="searchBar" destination="lbd-u5-u1w" id="KNm-5M-4B9"/>
+                        <outlet property="weatherTableView" destination="WNm-cG-tln" id="1f2-tV-Fhc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="295.5"/>
+        </scene>
+        <!--Weather Info Detail Array View Controller-->
+        <scene sceneID="7th-ng-aUA">
+            <objects>
+                <viewController storyboardIdentifier="WeatherInfoDetailArrayViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ubD-qS-XSl" customClass="WeatherInfoDetailArrayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iUT-MX-zcz"/>
+                        <viewControllerLayoutGuide type="bottom" id="zqj-Y5-u0P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hqf-pq-SsM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bhc-qW-ynV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ubD-qS-XSl" id="6aY-VY-hYg"/>
+                                    <outlet property="delegate" destination="ubD-qS-XSl" id="OIp-IQ-NPT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bhc-qW-ynV" firstAttribute="leading" secondItem="Hqf-pq-SsM" secondAttribute="leadingMargin" constant="-16" id="99Z-lH-vju"/>
+                            <constraint firstItem="bhc-qW-ynV" firstAttribute="top" secondItem="iUT-MX-zcz" secondAttribute="bottom" constant="1" id="GhA-1P-1rC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bhc-qW-ynV" secondAttribute="trailing" constant="-16" id="kHy-S0-f59"/>
+                            <constraint firstItem="zqj-Y5-u0P" firstAttribute="top" secondItem="bhc-qW-ynV" secondAttribute="bottom" id="mNY-1j-KoB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="bhc-qW-ynV"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="mNY-1j-KoB"/>
+                                <exclude reference="99Z-lH-vju"/>
+                                <exclude reference="GhA-1P-1rC"/>
+                                <exclude reference="kHy-S0-f59"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="bhc-qW-ynV"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="mNY-1j-KoB"/>
+                                <include reference="99Z-lH-vju"/>
+                                <include reference="GhA-1P-1rC"/>
+                                <include reference="kHy-S0-f59"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="infoTableView" destination="bhc-qW-ynV" id="Oi7-Bh-9Me"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lrr-oK-t6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876.5" y="294.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rj9-jq-oEd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D9y-WF-uOm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dxM-uW-BzP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="kkJ-Aq-XcE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wRP-56-elI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="288" y="295.5"/>
+        </scene>
+    </scenes>
+</document>
